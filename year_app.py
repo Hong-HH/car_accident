@@ -4,11 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib import font_manager, rc
-import tkinter
-import matplotlib
 
 def run_year_app() :
-    matplotlib.use('TkAgg')
+    
     font_path = "data/malgun.ttf"
     font = font_manager.FontProperties(fname=font_path).get_name()
     rc('font', family=font)

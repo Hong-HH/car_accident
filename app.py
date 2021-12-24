@@ -17,10 +17,37 @@ def main() :
     choice = st.sidebar.selectbox('메뉴', menu)
     if choice == '홈' :
         df = pd.read_csv('data/교통사고정보_2015_2018.csv')
-        st.dataframe(df.head(10))
-        text = "{} 개의 데이터와 {}의 특징으로 이루어져 있습니다.".format(df.shape[0], df.shape[1])
-        st.markdown('### 886435 개의 데이터와 28 개의 특징으로 이루어져 있습니다.')
-        st.markdown('### 사이드바에서 분석하고 싶은 메뉴를 고르세요')
+        st.markdown('### 총 886435 개의 데이터와 28 개의 특징으로 이루어져 있습니다. 사이드바에서 분석하고 싶은 메뉴를 고르세요')
+
+        eda_df = df[['발생년', '사망자수', '사상자수','중상자수' ,'경상자수', '부상신고자수' ]]
+     
+        st.subheader('컬럼별 히스토그램')
+
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        eda_df.hist(figsize=(10,8))
+        plt.show()
+        st.pyplot()
+        st.set_option('deprecation.showPyplotGlobalUse', True )
+
+        # describe
+        st.subheader('컬럼별 통계치')
+        st.dataframe(eda_df.describe())
+        st.subheader('가장 피해가 컸던 사고의 데이터')
+        max_menu = ['사망자수', '사상자수','중상자수' ,'경상자수', '부상신고자수' ]
+        select_max = st.selectbox('컬럼을 선택해주세요', max_menu)
+        max_data = df.loc[df[select_max]==df[select_max].max() , ]
+        st.dataframe(max_data)
+
+        max_day = max_data['발생일'].values[0]
+        max_day = str(max_day)
+        print(max_day)
+        print(max_day[0:4], max_day[4:6], max_day[6:], max_data['요일'].values[0])
+        st.text('사고 발생일 : {}년 {}월 {}일 {}요일'.format(max_day[0:4], max_day[4:6], max_day[6:], max_data['요일'].values[0]))
+        st.text('사망자수 : {}, 사상자수 : {}, 중상자수 : {}, 경상자수 : {} 의 피해가 있었습니다.'.format(max_data['사망자수'].values[0], max_data['사상자수'].values[0], max_data['중상자수'].values[0], max_data['경상자수'].values[0]))
+
+        
+
+
     
     elif choice == '연도별 비교' :
         run_year_app()
