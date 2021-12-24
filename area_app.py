@@ -10,7 +10,7 @@ def run_area_app() :
     font = font_manager.FontProperties(fname=font_path).get_name()
     rc('font', family=font)
     df = pd.read_csv('data/교통사고정보_2015_2018.csv')
-    col_name = ['발생년', '발생일', '발생시간', '주야', '요일', '사망자수', '사상자수', '중상자수', '경상자수',
+    col_name = ['발생년', '발생시간', '주야', '요일', '사망자수', '사상자수', '중상자수', '경상자수',
        '부상신고자수', '도로종류', '노면상태_대분류', '노면상태', '기상상태', 
        '사고유형_대분류', '사고유형_중분류', '사고유형', '가해자_법규위반_대분류', '가해자_법규위반', '도로형태_대분류',
        '도로형태', '가채자_당사종별_대분류', '가해자_당사자종별', '피해자_당사자종별_대분류', '피해자_당사자종별']
@@ -38,8 +38,7 @@ def run_area_app() :
         st.set_option('deprecation.showPyplotGlobalUse', True)
 
         # 표
-        st.write('세부 데이터')
-        #st.write('총 {} 개의 데이터가 있습니다.'.format(temp_df))
+
         st.dataframe(temp_df)
 
 

@@ -6,13 +6,14 @@ import seaborn as sns
 from matplotlib import font_manager, rc
 
 from area_app import run_area_app
+from danger_app import run_danger_app
 from year_app import run_year_app
 
 
 
 def main() :
     st.title('교통사고 통계 (2015-2018)')
-    menu = ['홈', '연도별', '지역별']
+    menu = ['홈', '연도별 비교', '지역별 비교',  '사고가 가장 많은 OOO']
     choice = st.sidebar.selectbox('메뉴', menu)
     if choice == '홈' :
         df = pd.read_csv('data/교통사고정보_2015_2018.csv')
@@ -21,11 +22,12 @@ def main() :
         st.markdown('### 886435 개의 데이터와 28 개의 특징으로 이루어져 있습니다.')
         st.markdown('### 사이드바에서 분석하고 싶은 메뉴를 고르세요')
     
-    elif choice == '연도별' :
+    elif choice == '연도별 비교' :
         run_year_app()
-
-    elif choice == '지역별' :
+    elif choice == '지역별 비교' :
         run_area_app()
+    elif choice == '사고가 가장 많은 OOO' :
+        run_danger_app()
 
 
 
