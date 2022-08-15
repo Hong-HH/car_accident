@@ -27,20 +27,27 @@ def main() :
     choice = st.sidebar.selectbox('메뉴', menu)
     if choice == '홈' :
         df = pd.read_csv('data/교통사고정보_2015_2018.csv')
+        print("포인트 1 통과")
         st.markdown('### 총 886435 개의 데이터와 28 개의 특징으로 이루어져 있습니다. 사이드바에서 분석하고 싶은 메뉴를 고르세요')
 
         eda_df = df[['발생년', '사망자수', '사상자수','중상자수' ,'경상자수', '부상신고자수' ]]
+        print("포인트 2 통과")
 
         # 글꼴 바꾸기 테스트
         eda_df.style.set_properties(**{'font-family': font})
+        print("포인트 3 통과")
      
         st.subheader('컬럼별 히스토그램')
 
         st.set_option('deprecation.showPyplotGlobalUse', False)
         eda_df.hist(figsize=(10,8))
+        print("포인트 4 통과")
         plt.show()
+        print("포인트 5 통과")
         st.pyplot()
+        print("포인트 6 통과")
         st.set_option('deprecation.showPyplotGlobalUse', True )
+        print("포인트 7 통과")
 
         # describe
         st.subheader('컬럼별 통계치')
