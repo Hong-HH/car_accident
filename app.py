@@ -13,10 +13,6 @@ from year_app import run_year_app
 
 def main() :
 
-    # 한글 폰트 설정 
-    font_path = "data/NanumGothic.ttf"
-    font = font_manager.FontProperties(fname=font_path).get_name()
-    rc('font', family=font)
 
     # 제목과 사이드바에 메뉴
     st.title('교통사고 통계 (2015-2018)')
@@ -26,6 +22,11 @@ def main() :
 
 
     if choice == '홈' :
+
+        # 한글 폰트 설정 
+        font_path = "data/NanumGothic.ttf"
+        font = font_manager.FontProperties(fname=font_path).get_name()
+        rc('font', family=font)
 
          # 분석할 csv 데이터 읽어오기
         df = pd.read_csv('data/교통사고정보_2015_2018.csv')
