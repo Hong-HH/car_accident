@@ -8,9 +8,9 @@ from matplotlib import font_manager, rc
 
 def run_danger_app() :
     
-    font_path = "data/malgun.ttf"
-    font = font_manager.FontProperties(fname=font_path).get_name()
-    rc('font', family=font)
+    # font_path = "data/malgun.ttf"
+    # font = font_manager.FontProperties(fname=font_path).get_name()
+    # rc('font', family=font)
     df_d = pd.read_csv('data/교통사고정보_2015_2018.csv')
 
     df_d.rename(columns={'발생지_시도' : '지역', '발생시간': '시간', '가해자_법규위반_대분류' :'법규위반_대분류', '가해자_당사자종별' : '차종별'}, inplace=True)
