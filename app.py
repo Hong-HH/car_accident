@@ -34,10 +34,6 @@ def main() :
 
         eda_df = df[['발생년', '사망자수', '사상자수','중상자수' ,'경상자수', '부상신고자수' ]]
         print("포인트 2 통과")
-
-        # 글꼴 바꾸기 테스트
-        eda_df.style.set_properties(**{'font-family': font})
-        print("포인트 3 통과")
      
         st.subheader('컬럼별 히스토그램')
 
