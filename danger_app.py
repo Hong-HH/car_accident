@@ -8,10 +8,10 @@ from matplotlib import font_manager, rc
 
 def run_danger_app() :
 
-    df = pd.read_csv('data/교통사고정보_2015_2018.csv')
+    df_d = pd.read_csv('data/교통사고정보_2015_2018.csv')
     
     # 이용자가 이해하기 쉬운 단어로 rename
-    df.rename(columns={'발생지_시도' : '지역', '발생시간': '시간', '가해자_법규위반_대분류' :'법규위반_대분류', '가해자_당사자종별' : '차종별'}, inplace=True)
+    df_d.rename(columns={'발생지_시도' : '지역', '발생시간': '시간', '가해자_법규위반_대분류' :'법규위반_대분류', '가해자_당사자종별' : '차종별'}, inplace=True)
 
     # 선택 가능한 컬럼 리스트
     col_name = ['지역', '시간', '요일',  
@@ -24,7 +24,7 @@ def run_danger_app() :
     st.subheader('사고가 가장 많은 {}'.format(select_col))
     
     # 선택한 메뉴로 dataframe 만들고 데이터 정렬하기
-    temp_df = df.groupby([select_col])[select_col].count()
+    temp_df = df_d.groupby([select_col])[select_col].count()
     temp_df = temp_df.fillna(0)
     temp_df = temp_df.sort_values(ascending=False)
     

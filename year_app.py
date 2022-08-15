@@ -8,6 +8,7 @@ from matplotlib import font_manager, rc
 def run_year_app() :
 
     df = pd.read_csv('data/교통사고정보_2015_2018.csv')
+
     
     # 선택 가능한 선택지 리스트
     col_name = ['발생지_시도', '발생시간', '주야', '요일', '사망자수', '사상자수', '중상자수', '경상자수',
