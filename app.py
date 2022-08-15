@@ -17,7 +17,7 @@ def main() :
     # font = font_manager.FontProperties(fname=font_path).get_name()
     # print(font)
 
-    font_path = "data/malgun.ttf"
+    font_path = "data/NanumGothic.ttf"
     font = font_manager.FontProperties(fname=font_path).get_name()
     rc('font', family=font)
 
