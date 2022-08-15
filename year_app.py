@@ -7,6 +7,11 @@ from matplotlib import font_manager, rc
 
 def run_year_app() :
 
+    # 한글 폰트 설정 
+    font_path = "data/NanumGothic.ttf"
+    font = font_manager.FontProperties(fname=font_path).get_name()
+    rc('font', family=font)
+
     df = pd.read_csv('data/교통사고정보_2015_2018.csv')
 
     
