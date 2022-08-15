@@ -14,8 +14,9 @@ from year_app import run_year_app
 def main() :
     # 한글 폰트 설정 
     font_path = "/usr/share/fonts/nanumfont/NanumGothic.ttf"
-    font = font_manager.FontProperties(fname=font_path).get_name()
-    rc('font', family=font)
+    # font = font_manager.FontProperties(fname=font_path).get_name()
+    # rc('font', family=font)
+    rc('font', family="NanumGothic")
 
 
 
