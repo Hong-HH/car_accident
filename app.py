@@ -74,12 +74,12 @@ def main() :
 
 
     
-    # elif choice == '연도별 비교' :
-    #     run_year_app()
-    # elif choice == '지역별 비교' :
-    #     run_area_app()
-    # elif choice == '사고가 가장 많은 OOO' :
-    #     run_danger_app()
+    elif choice == '연도별 비교' :
+        run_year_app()
+    elif choice == '지역별 비교' :
+        run_area_app()
+    elif choice == '사고가 가장 많은 OOO' :
+        run_danger_app()
 
 
 
