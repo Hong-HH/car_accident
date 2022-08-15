@@ -14,9 +14,11 @@ from year_app import run_year_app
 def main() :
     # 한글 폰트 설정 
     font_path = "/usr/share/fonts/nanumfont/NanumGothic.ttf"
-    # font = font_manager.FontProperties(fname=font_path).get_name()
+    font = font_manager.FontProperties(fname=font_path).get_name()
+    print(font)
+
     # rc('font', family=font)
-    rc('font', family="NanumGothic")
+
 
 
 
@@ -28,6 +30,9 @@ def main() :
         st.markdown('### 총 886435 개의 데이터와 28 개의 특징으로 이루어져 있습니다. 사이드바에서 분석하고 싶은 메뉴를 고르세요')
 
         eda_df = df[['발생년', '사망자수', '사상자수','중상자수' ,'경상자수', '부상신고자수' ]]
+
+        # 글꼴 바꾸기 테스트
+        eda_df.style.set_properties(**{'font-family': font})
      
         st.subheader('컬럼별 히스토그램')
 
