@@ -7,6 +7,8 @@ from matplotlib import font_manager, rc
 
 
 def run_danger_app(df) :
+
+    df = pd.read_csv('data/교통사고정보_2015_2018.csv')
     
     # 이용자가 이해하기 쉬운 단어로 rename
     df.rename(columns={'발생지_시도' : '지역', '발생시간': '시간', '가해자_법규위반_대분류' :'법규위반_대분류', '가해자_당사자종별' : '차종별'}, inplace=True)

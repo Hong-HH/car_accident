@@ -23,11 +23,12 @@ def main() :
     menu = ['홈', '연도별 비교', '지역별 비교',  '사고가 가장 많은 OOO']
     choice = st.sidebar.selectbox('메뉴', menu)
 
-    # 분석할 csv 데이터 읽어오기
-    df = pd.read_csv('data/교통사고정보_2015_2018.csv')
 
 
     if choice == '홈' :
+
+         # 분석할 csv 데이터 읽어오기
+        df = pd.read_csv('data/교통사고정보_2015_2018.csv')
         
         st.markdown('### 총 886435 개의 데이터와 28 개의 특징으로 이루어져 있습니다. 사이드바에서 분석하고 싶은 메뉴를 고르세요')
 
@@ -71,11 +72,11 @@ def main() :
 
     
     elif choice == '연도별 비교' :
-        run_year_app(df)
+        run_year_app()
     elif choice == '지역별 비교' :
-        run_area_app(df)
+        run_area_app()
     elif choice == '사고가 가장 많은 OOO' :
-        run_danger_app(df)
+        run_danger_app()
 
 
 

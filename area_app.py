@@ -7,6 +7,8 @@ from matplotlib import font_manager, rc
 
 
 def run_area_app(df) :
+
+    df = pd.read_csv('data/교통사고정보_2015_2018.csv')
     
     # 항목 종류
     col_name = ['발생년', '발생시간', '주야', '요일', '사망자수', '사상자수', '중상자수', '경상자수',
