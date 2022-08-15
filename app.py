@@ -12,6 +12,13 @@ from year_app import run_year_app
 
 
 def main() :
+    # 한글 폰트 설정 
+    font_path = "data/malgun.ttf"
+    font = font_manager.FontProperties(fname=font_path).get_name()
+    rc('font', family=font)
+
+
+
     st.title('교통사고 통계 (2015-2018)')
     menu = ['홈', '연도별 비교', '지역별 비교',  '사고가 가장 많은 OOO']
     choice = st.sidebar.selectbox('메뉴', menu)
